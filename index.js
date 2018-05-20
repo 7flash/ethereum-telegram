@@ -66,7 +66,7 @@ bot.onText(/\/start/, (message) => {
 			}],[
 			{
 				text: "Proof Of Skill (@sw1sh)",
-				url: "https://sw1sh.github.io/ethereum-telegram/index.html?0x035aDaA393362f107bB730904D74Bd2325924F8C"
+				url: "https://sw1sh.github.io/ethereum-telegram/index.html?0x77ae2ba15639e71c4f54aba56ac13a16dd14f138"
 			}]]
 		}
 	});
