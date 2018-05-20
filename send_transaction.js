@@ -3,6 +3,8 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 const fs = require('fs');
 const path = require('path');
 
+const web3 = require('Web3');
+
 let mnemonic = '';
 
 if(mnemonic === '' && fs.existsSync(path.resolve(__dirname, "mnemonic"))) {
@@ -13,6 +15,8 @@ if(mnemonic === '' && fs.existsSync(path.resolve(__dirname, "mnemonic"))) {
 
 let config = {};
 config.networks = {};
+
+let signatures = [];
 
 config.networks.development = {
 	host: "localhost",
@@ -50,9 +54,9 @@ module.exports = ({ oracle_address, certificate_address, sig }) => {
 
     const Certificate = contract(certificate_artifact);
 
-    Certificate.setProvider(config.networks[CURRENT_NETWORK].provider);
+    Certificate.setProvider(config.networks['rinkeby'].provider);
 
     Certificate.at(certificate_address).then(function(instance) {
-      return instance.confirmFrom(oracle_address, sig);
+      return instance.confirmFrom(oracle_address, sig, {from: "0x50c4ba14aa6d0c3e412c67033f594413cd9421e0"});
     });
 };
