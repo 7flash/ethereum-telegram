@@ -5,11 +5,25 @@
     <title>Ethereum-telegram</title>
 </head>
 <body>
-    <div>Private key: <span id="secretKey"></span></div>
-    <div>Public key: <span id="publicKey"></span></div>
 
-    <script src="nacl.min.js"></script>
-    <script src="nacl-util.min.js"></script>
+    <script src="web3.min.js"></script>
     <script src="main.js"></script>
+
+    <script>
+        
+
+        function send_transaction() {
+
+            sign(certificate_address, document.getElementById('secretKey').value);
+        }
+    </script>
+
+    <div>
+      <input id=secretKey name=secretKey value='Secret Key'></input>
+      <button onClick='send_transaction()'>Sign</button>
+    </div>
+
+    <div>Signature: <span id="signature"></span></div>
+
 </body>
 </html>
